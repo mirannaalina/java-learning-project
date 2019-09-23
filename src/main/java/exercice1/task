@@ -1,0 +1,13 @@
+Taking the following CSV file containing one article per row:
+<id>,<creationDate>,<title>,<content> read all articles from the file inserted as an input to the program.
+
+Once the file was successfully read, the following operations should be allowed to be performed:
+
+orderAscByCreationDate
+orderDescByCreationDate
+orderAlphabeticallyByTitle
+
+Each action can be invoked by pressing the corresponding number: 1, 2 or 3.
+A nice human readable message must be printed next to each number.
+
+The code must be sitting in the following package: com.javalearningproject.exercise1
