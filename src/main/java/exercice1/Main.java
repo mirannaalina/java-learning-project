@@ -9,6 +9,8 @@ public class Main {
 
         ReadFileCSV();
 
+
+
         System.out.println("*******************************************************");
 
         System.out.println("Choose what you want to perform :");
@@ -27,8 +29,12 @@ public class Main {
                 break;
             case 2 :
                 orderDescByCreationDate();
+                break;
             case 3 :
                 orderAlphabeticallyByTitle();
+                break;
+            default :
+                System.out.println("No available number");
         }
 
 
