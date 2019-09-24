@@ -8,13 +8,16 @@ public class MyMethods {
 
     protected static String fileName = "file.csv";
 
+
+    //array-ul cu intreg continutul
     protected static List<String> date = new ArrayList<String>();
 
-    //liste mai mici cu valorile din creationdate si title (Array list, not a simple array)
 
 
-    protected static List<String> creationdate =date.subList(2,3);
-   // protected static String [] title =
+    //array-uri din listele mai mici
+    protected static List<String> creationdate = new ArrayList<String>();
+    protected static List<String> titles = new ArrayList<String>();
+
 
 
     public static void ReadFileCSV(){
@@ -24,8 +27,15 @@ public class MyMethods {
             Scanner inputStream = new Scanner(file);
             while(inputStream.hasNext()){
                  String data = inputStream.next();
+
+                 //data.split(";");
+                 String dateString = data.substring(data.indexOf(';')+1);
+                 String titleString = data.substring(data.indexOf(';')+2);
+
                 System.out.println(data);
                 date.add(data);
+                creationdate.add(dateString);
+                titles.add(titleString);
 
             }
             inputStream.close();
@@ -36,11 +46,11 @@ public class MyMethods {
 
     public static void orderAScByCreationDate(){
 
-        Collections.sort(date, new AgeComparator());
+        Collections.sort(creationdate, new AgeComparator());
 
         System.out.println("Ascendent creation date : \n");
 
-        for (String cont : date) {
+        for (String cont : creationdate) {
             System.out.println(cont);
         }
 
@@ -48,18 +58,18 @@ public class MyMethods {
 
     public static void orderDescByCreationDate(){
 
-        Collections.sort(date, new AgeDescendent());
+        Collections.sort(creationdate, new AgeDescendent());
 
         System.out.println("Descendent creation date : \n");
 
-        for (String cont : date) {
+        for (String cont : creationdate) {
             System.out.println(cont);
         }
 
     }
     public static void orderAlphabeticallyByTitle(){
 
-        Set<String> s = new TreeSet<String>(date);
+        Set<String> s = new TreeSet<String>(titles);
 
         System.out.println("Alphabetically By Title: \n");
 
